@@ -1,10 +1,10 @@
 import pyslang
 from typing import Dict, Set, Optional
 from dataclasses import dataclass
-from util import clean_port_string
+from util.util import clean_port_string
 import pandas as pd
-from param import Param
-from port import Port
+from structures.param import Param
+from structures.port import Port
 import pandasql
 
 class Module:
