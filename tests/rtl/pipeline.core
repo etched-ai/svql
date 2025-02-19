@@ -1,0 +1,18 @@
+CAPI=2:
+name: ::pipeline:0.1.0
+description: Complex pipeline design with filters and buffers
+
+filesets:
+  rtl:
+    files:
+      - delay_cell.sv
+      - filter_stage.sv
+      - ptr_manager.sv
+      - buffer_stage.sv
+      - pipeline_top.sv
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets:
+      - rtl 

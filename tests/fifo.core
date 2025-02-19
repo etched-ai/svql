@@ -1,0 +1,23 @@
+CAPI=2:
+  # Core information
+  name: ::fifo:0.1.0
+  description: Simple FIFO implementation
+
+filesets:
+  rtl:
+    files:
+      - fifo.sv
+    file_type: systemVerilogSource
+    
+  tb:
+    files:
+      - tb/fifo_tb.sv
+    file_type: systemVerilogSource
+    
+targets:
+  default:
+    filesets: [rtl]
+    
+  sim:
+    filesets: [rtl, tb]
+    default_tool: verilator 
