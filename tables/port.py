@@ -2,14 +2,15 @@ from __future__ import annotations
 import pandas as pd
 from typing import Set, Optional
 
-class Port:
+
+class PortRow():
     def __init__(
         self,
         name: str,
         dtype: str,
         direction: str,
         width: Optional[int] = 1,
-        connected_to: Set[Port] = set()
+        connected_to: Set[Port] = set(),
     ):
         self.name = name
         self.dtype = dtype
@@ -37,6 +38,3 @@ class Port:
             "width": self.width,
             "connected_to": ','.join([p.name for p in self.connected_to]) if self.connected_to else None
         })
-
-    def print(self):
-        print(self.series())
