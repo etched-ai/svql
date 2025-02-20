@@ -1,5 +1,5 @@
 module pipeline_top #(
-    parameter DATA_WIDTH = 32,
+    parameter logic [31:0] DATA_WIDTH = 64 / 2,
     parameter FILTER_TAPS = 4,
     parameter BUFFER_DEPTH = 8
 ) (
