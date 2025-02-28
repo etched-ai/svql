@@ -23,7 +23,7 @@ Below are some examples demonstrating how to parse a SystemVerilog module, execu
 Module parameters typically come with default values. When a parameter has not been explicitly overridden, it retains its default value. Use the following query to extract those parameters:
 
 ```python
-from module import Module
+from svql import Module
 
 # Parse a SystemVerilog module
 module = Module("path/to/your/module.sv")
@@ -44,7 +44,7 @@ print(module.query("SELECT * FROM params WHERE override_value IS NULL"), "\n")
 To retrieve all input ports of a module, filter the ports based on their direction:
 
 ```python
-from module import Module
+from svql import Module
 
 # Parse a SystemVerilog module
 module = Module("path/to/your/module.sv")
