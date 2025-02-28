@@ -1,5 +1,5 @@
 import pyslang
-from tables import port
+from svql.tables import port
 
 
 class PortVisitor:

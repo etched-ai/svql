@@ -1,5 +1,5 @@
 import pyslang
-from tables import param
+from svql.tables import param
 
 
 class ParamVisitor:

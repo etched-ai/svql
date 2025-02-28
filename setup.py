@@ -5,14 +5,15 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="svql",
-    version="0.1.0",
+    version="0.1.6",
     author="sathvik",
     author_email="sathvik@etched.com",
     description="A Python tool for parsing and analyzing SystemVerilog modules using SQL queries",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/etched-ai/svql",
-    packages=find_packages(),
+    package_dir={"": "src"},
+    packages=find_packages(where="src"),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

@@ -1,7 +1,7 @@
 import pyslang
 import pandas as pd
 import pandasql
-from ast_visitors import port_visitor, param_visitor
+from svql.ast_visitors import port_visitor, param_visitor
 
 
 class Module:

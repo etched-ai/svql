@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "svql"
-version = "0.1.2"
+version = "0.1.6"
 description = "Query SystemVerilog modules with SQL."
 readme = "README.md"
 authors = [{name = "sathvik", email = "sathvik@etched.com"}]
