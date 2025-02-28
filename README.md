@@ -8,10 +8,10 @@ svql provides a simple interface to extract and query information from SystemVer
 
 ## Installation
 
-Install the required dependencies with:
+Very easy! Just run:
 
 ```bash
-pip install -r requirements.txt
+pip install svql
 ```
 
 ## Usage
