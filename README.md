@@ -1,10 +1,10 @@
-# parsv: SystemVerilog Module Analysis Tool
+# svql: SystemVerilog Module Analysis Tool
 
 A Python tool for parsing and analyzing SystemVerilog modules using SQL queries.
 
 ## Overview
 
-parsv provides a simple interface to extract and query information from SystemVerilog modules. It parses module parameters, ports, and their connections, storing them in SQL-queryable DataFrames.
+svql provides a simple interface to extract and query information from SystemVerilog modules. It parses module parameters, ports, and their connections, storing them in SQL-queryable DataFrames.
 
 ## Installation
 
