@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "svql"
+version = "0.1.2"
+description = "Query SystemVerilog modules with SQL."
+readme = "README.md"
+authors = [{name = "sathvik", email = "sathvik@etched.com"}]
+license = { text = "MIT" }
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "pandas",
+    "pandasql",
+    "pyslang",
+]
