@@ -65,25 +65,6 @@ class Module:
 
     def _build_submodule_instances(self) -> None:
         root = self.module
-
-        # Build design hierarchy
-        # For each module in the file:
-        # 1. Check if instance of another module
-
-
-        # def is_top_module(module):
-        # 1. for other_module in modules:
-        # 1a. for instance in other_module.instances:
-        # 1ab. if instance.name == module.name: return False
-        # 1b. return True
-
-        # top_modules = []
-
-        # for module_a in modules:
-        # 1. if is_top_module(module_a): top_modules.append(module_a)
-        
-        # return top_modules
-        
         pass
 
     def _update_tables(self) -> None:
