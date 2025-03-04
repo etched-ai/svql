@@ -2,6 +2,7 @@ import pyslang
 import pandas as pd
 import pandasql
 from svql.ast_visitors import port_visitor, param_visitor
+from svql.utils import attr_utils
 
 
 class Module:
@@ -9,6 +10,8 @@ class Module:
         self.file_path = file_path
         self.ast = pyslang.SyntaxTree.fromFile(file_path)
         self.module = self.ast.root.members[0]
+
+        # print("Module: ", self.module)
 
         # Module properties
         self.name = self.module.header.name.value        
@@ -33,6 +36,9 @@ class Module:
         self._update_tables()
 
     def _build_params(self) -> None:
+        if self.module.header.parameters is None:
+            return
+            
         root = self.module.header.parameters.declarations
         visitor = param_visitor.ParamVisitor()
         
@@ -41,10 +47,12 @@ class Module:
         self.params = pd.DataFrame(visitor.params)
 
     def _build_ports(self) -> None:
-        root = self.module.header.ports.ports
         visitor = port_visitor.PortVisitor()
 
-        for port in root: visitor.visit(port)
+        for port in self.module.header.ports.ports: visitor.visit(port)
+
+        if len(visitor.ports) == 0:
+            for member in self.module.members: visitor.visit(member)
 
         self.ports = pd.DataFrame(visitor.ports)
 
