@@ -11,7 +11,7 @@ class PortVisitor:
             self.ports.append(port.PortRow(
                 name=str(node.declarator.name).strip(),
                 dtype=str(node.header.dataType.keyword).strip() if str(node.header.dataType) != '' else None,
-                width=str(node.header.dataType.dimensions).strip() if str(node.header.dataType.dimensions) != '' else '[1:0]',
+                width=str(node.header.dataType.dimensions).strip() if str(node.header.dataType.dimensions) != '' else '[0:0]',
                 direction=str(node.header.direction).strip(),
                 connected_to=None
             ).series())
@@ -20,8 +20,8 @@ class PortVisitor:
                 if declarator.kind == pyslang.SyntaxKind.Declarator:
                     self.ports.append(port.PortRow(
                         name=str(declarator.name).strip(),
-                        dtype=None,
-                        width=str(node.header.dataType.dimensions).strip() if str(node.header.dataType.dimensions) != '' else '[1:0]',
+                        dtype='wire',
+                        width=str(node.header.dataType.dimensions).strip() if str(node.header.dataType.dimensions) != '' else '[0:0]',
                         direction=str(node.header.direction).strip(),
                         connected_to=None
                     ).series())

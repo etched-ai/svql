@@ -1,3 +1,4 @@
+import os
 import pyslang
 import pandas as pd
 import pandasql
@@ -8,12 +9,10 @@ from svql.utils import attr_utils
 class Module:
     def __init__(self, file_path: str):
         self.file_path = file_path
+        self.file_name = os.path.splitext(os.path.basename(file_path))[0]
         self.ast = pyslang.SyntaxTree.fromFile(file_path)
-        self.module = self.ast.root.members[0]
-
-        # print("Module: ", self.module)
-
-        # Module properties
+        
+        self.set_top_module()
         self.name = self.module.header.name.value        
         self.params = pd.DataFrame(columns=[
             "name", "dtype", "default_value", 
@@ -34,6 +33,14 @@ class Module:
         self._build_params()
         self._build_ports()
         self._update_tables()
+
+    def set_top_module(self) -> None:
+        for module in self.ast.root.members:
+            if module.header.name.value == self.file_name:
+                self.module = module
+                return
+
+        raise ValueError(f"Module {self.file_name} not found in {self.file_path}")
 
     def _build_params(self) -> None:
         if self.module.header.parameters is None:
@@ -58,6 +65,25 @@ class Module:
 
     def _build_submodule_instances(self) -> None:
         root = self.module
+
+        # Build design hierarchy
+        # For each module in the file:
+        # 1. Check if instance of another module
+
+
+        # def is_top_module(module):
+        # 1. for other_module in modules:
+        # 1a. for instance in other_module.instances:
+        # 1ab. if instance.name == module.name: return False
+        # 1b. return True
+
+        # top_modules = []
+
+        # for module_a in modules:
+        # 1. if is_top_module(module_a): top_modules.append(module_a)
+        
+        # return top_modules
+        
         pass
 
     def _update_tables(self) -> None:
