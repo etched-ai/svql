@@ -7,12 +7,12 @@ from svql.utils import attr_utils
 
 
 class Module:
-    def __init__(self, file_path: str):
+    def __init__(self, file_path: str, top: str = None):
         self.file_path = file_path
         self.file_name = os.path.splitext(os.path.basename(file_path))[0]
         self.ast = pyslang.SyntaxTree.fromFile(file_path)
         
-        self.set_top_module()
+        self.set_top_module(top)
         self.name = self.module.header.name.value        
         self.params = pd.DataFrame(columns=[
             "name", "dtype", "default_value", 
@@ -34,9 +34,11 @@ class Module:
         self._build_ports()
         self._update_tables()
 
-    def set_top_module(self) -> None:
+    def set_top_module(self, top: str = None) -> None:
+        target_name = top if top is not None else self.file_name
+        
         for module in self.ast.root.members:
-            if module.header.name.value == self.file_name:
+            if module.header.name.value == target_name:
                 self.module = module
                 return
 

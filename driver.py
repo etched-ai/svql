@@ -13,8 +13,10 @@ from svql import Module
 # module = Module("/project/sohu/shreyas/etched4/tools/gls/datalink.v")
 # module = Module("tests/rtl/mini_datalink.v")
 
-# module = Module("/project/sohu/netlists/ipu/synth_old/orig/ipu.v")
-module = Module("/project/sohu/shreyas/etched4/tools/gls/isc.v")
+# # module = Module("/project/sohu/netlists/ipu/synth_old/orig/ipu.v")
+module = Module("/project/sohu/shreyas/etched4/tools/gls/isc.v", top="CDN_flop")
+
+# module = Module("tests/rtl/test.v")
 
 print(module.name)
 print("-" * 100)

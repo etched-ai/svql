@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="svql",
-    version="0.1.6",
+    version="0.1.7",
     author="sathvik",
     author_email="sathvik@etched.com",
     description="A Python tool for parsing and analyzing SystemVerilog modules using SQL queries",
@@ -23,10 +23,5 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)",
     ],
-    python_requires=">=3.6",
-    install_requires=[
-        "pandas",
-        "pandasql",
-        "pyslang",
-    ],
+    python_requires=">=3.6"
 )
