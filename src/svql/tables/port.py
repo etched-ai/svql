@@ -11,13 +11,15 @@ class PortRow():
         direction: str,
         width: Optional[int] = 1,
         connected_to: Set[Port] = set(),
+        dimensions: str = '[0:0]'
     ):
         self.name = name
         self.dtype = dtype
         self.width = width
         self.direction = direction
         self.connected_to = connected_to
-
+        self.dimensions = dimensions
+        
     def __hash__(self) -> int:
         return hash((self.name, self.direction))
     
@@ -36,5 +38,6 @@ class PortRow():
             "dtype": self.dtype,
             "direction": self.direction,
             "width": self.width,
-            "connected_to": ','.join([p.name for p in self.connected_to]) if self.connected_to else None
+            "connected_to": ','.join([p.name for p in self.connected_to]) if self.connected_to else None,
+            "dimensions": self.dimensions
         })

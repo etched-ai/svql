@@ -8,6 +8,4 @@ class SubmoduleInstanceVisitor:
     def visit(self, node):
         if node.kind == pyslang.SyntaxKind.HierarchyInstantiation:
             attr_utils.print_attrs(node)
-            # self.submodule_instances.append(node)
-            # print("Submodule instance: ", node)
             print("--------------------------------")
